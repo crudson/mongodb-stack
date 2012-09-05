@@ -134,6 +134,17 @@ To clear the stack, leaving just the current db:
     [>people<]
 ```
 
+
+The current stack can be incorporated into the prompt (mongodb v1.9.1+) rather than being
+printed only after modification. For this to be visually pleasing, the stack should be
+put into *silent* mode first. *true* is then passed to *print* to override silent mode.  
+e.g. in ~/.mongorc.js
+```javascript
+    mongoStack.silent = true;
+    prompt = function() { mongoStack.print(true) }
+```
+
+
 Other
 -----
 

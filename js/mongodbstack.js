@@ -91,18 +91,23 @@ shellHelper.cleardbs = function() {
   Prints the db stack.
 */
 shellHelper.dbs = function() {
-    mongoStack.print();
+    mongoStack.print(true);
 };
 
 var mongoStack = new function() {
     return {
         enabled: true,
+        silent: false, // if silent, print() will only print if passed true
 
         // Start with whatever db mongo was started with (defaults to test)
         stack: [db],
 
-        print: function() {
-            print('[' + this.stack.map(function(e,i) { return i == 0 ? ('>' + e + '<') : e }).join(',') + ']');
+        /*
+          force=true overrides silent
+         */
+        print: function(force) {
+            if (force || !this.silent)
+                print('[' + this.stack.map(function(e,i) { return i == 0 ? ('>' + e + '<') : e }).join(',') + ']');
         },
 
         cleardbs: function() {
@@ -168,7 +173,7 @@ var mongoStack = new function() {
             this.print();
         },
 
-        // swap head with db at given index
+        // move db at given index to head
         pushdbn: function(n) {
             if (this.stack.length <= 1)
                 return;
