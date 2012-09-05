@@ -148,9 +148,18 @@ e.g. in ~/.mongorc.js
 Other
 -----
 
-I threw this together quickly because:
-- I am constantly changing dbs in the shell and get tired of typing db names
-- There is no autocomplete for 'use dbname', and long db names are a pain to type if
-changing between them often
+I threw this together because:
+- I am constantly changing dbs in the shell and get tired of typing db names.
+- Long database names (and ones created programmatically by applications) can be a nuisance
+to remember.
+- There is no autocomplete for 'use dbname', and long db names can be a pain as described above
+when changing between them often.
+- Manually maintaining references to multiple dbs in a shell session is unwieldy for anything
+other than the simplest cases, and commands such as 'show collections' are dependent on which
+database *db* is currently pointing to.
 - I use pushd and popd in my regular shell all the time, and applying it to a mongodb
-session seems sensible
+session seems sensible.
+
+This is completely as-is code. I banged it together as it's something I've wanted for
+some time in the mongo shell. If you can use it then good. It's not complicated, clever, or
+tested.
