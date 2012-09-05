@@ -48,6 +48,13 @@ To push a db onto the stack and change to it:
 ```
 Here we have pushed *people* onto the stack an changed to it.
 
+
+To swap the top two dbs, use pushdb with no arguments:
+```
+    > pushdb
+    [>foo<,people]
+```
+
 To pop a db off the stack:
 ```
     > popdb
