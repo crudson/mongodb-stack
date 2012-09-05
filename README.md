@@ -53,6 +53,8 @@ To swap the top two dbs, use pushdb with no arguments:
 ```
     > pushdb
     [>foo<,people]
+    > pushdb
+    [>people<,foo]
 ```
 
 To pop a db off the stack:
