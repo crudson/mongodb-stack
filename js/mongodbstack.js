@@ -1,8 +1,13 @@
 /*
   Database stack akin to shell dir stack (pushd, popd).
+
+  All commands are registered with the shellHelper, so can be called in 'word form' in
+  the shell, ala 'show collections'.
 */
 
 /*
+  usage: stackon
+
   Enable the stack.
   If enabled, 'use dbname' will use the db stack as well as changing db.
   Either way, pushdb, popdb etc will be available to use.
@@ -13,6 +18,8 @@ shellHelper.stackon = function() {
 }
 
 /*
+  usage: stackoff
+
   Disaable the stack.
   If disabled, 'use dbname' will just change db.
   Either way, pushdb, popdb etc will be available to use.
@@ -22,6 +29,8 @@ shellHelper.stackoff = function() {
 }
 
 /*
+  usage: use dbname
+
   Replacement for 'use dbname' that also changes the head of the db stack if the stack is enabled.
 */
 shellHelper.use = function (dbname) {
@@ -39,6 +48,8 @@ shellHelper.use = function (dbname) {
 }
 
 /*
+  usage: pushdb |dbname|+n|-n
+
   If called with zero arguments, swaps top two databases.
 
   If called with +n, where n is an integer, swaps the head with the nth db, starting at 0.
@@ -53,6 +64,8 @@ shellHelper.pushdb = function(d) {
 };
 
 /*
+  usage: popdb |+n|-n
+
   Removes the top of the db stack, and sets the new top as the current db.
 
   If called with +n, where n is a positive integer, removes the nth db, starting at 0.
@@ -64,6 +77,8 @@ shellHelper.popdb = function(depth) {
 };
 
 /*
+  usage: cleardbs
+
   Clears the db stack of all but the current head.
 */
 shellHelper.cleardbs = function() {
@@ -71,6 +86,8 @@ shellHelper.cleardbs = function() {
 };
 
 /*
+  usage: dbs
+
   Prints the db stack.
 */
 shellHelper.dbs = function() {
@@ -151,6 +168,7 @@ var mongoStack = new function() {
             this.print();
         },
 
+        // swap head with db at given index
         pushdbn: function(n) {
             if (this.stack.length <= 1)
                 return;
