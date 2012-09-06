@@ -160,15 +160,16 @@ Other
 I threw this together because:
 - manually maintaining references to multiple dbs in a shell session is unwieldy for anything
 other than the simplest cases, and commands such as 'show collections' are dependent on which
-database *db* is currently pointing to
+database *db* is currently pointing to.
 - I use pushd and popd in my regular shell all the time, and applying it to a mongodb
-session seems sensible
+session seems sensible.
 - I am constantly changing dbs in the shell and get tired of typing db names.
 - long database names (and ones created programmatically by applications) can be a nuisance
-to remember
-- logically mis-typing a db name will result in changing to a 'new' db. Having a stack mitigates this
+to remember.
+- logically mis-typing a db name will result in changing to a 'new' db. Having a stack mitigates
+this.
 - there is no autocomplete for 'use dbname', and long db names can be a pain as described above
-when changing between them often
+when changing between them often.
 
 This is completely as-is code. I banged it together as it's something I've wanted for
 some time in the mongo shell. If you can use it then good. It's not complicated, clever, or
