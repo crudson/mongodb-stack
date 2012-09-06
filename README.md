@@ -172,3 +172,5 @@ session seems sensible.
 This is completely as-is code. I banged it together as it's something I've wanted for
 some time in the mongo shell. If you can use it then good. It's not complicated, clever, or
 tested.
+
+[JIRA Issue related to this](https://jira.mongodb.org/browse/SERVER-6356)
