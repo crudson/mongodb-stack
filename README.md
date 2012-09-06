@@ -112,7 +112,7 @@ again, but move it to the head:
     [>people<,blog,foo,bar]
 ```
 
-Similarly, is we *use* a db that is already in the stack, it will be moved to the head:
+Similarly, if we *use* a db that is already in the stack, it will be moved to the head:
 ```
     > dbs
     [>people<,blog,foo,bar]
